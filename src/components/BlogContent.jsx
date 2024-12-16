@@ -23,8 +23,8 @@ const BlogContent = () => {
         ابقِ على اطلاع بأحدث صيحات الموضة
       </h2>
       <div className="flex flex-col flex-wrap lg:flex-row  gap-4">
-        {blogs.map((blog) => (
-          <div
+        {blogs.map((blog) => {
+         return <div
             key={blog.id}
             className="w-full lg:w-[31%] bg-[#f6f2e9] border p-1"
           >
@@ -50,7 +50,7 @@ const BlogContent = () => {
               </button>
             </div>
           </div>
-        ))}
+           })}
       </div>
     </div>
   );
