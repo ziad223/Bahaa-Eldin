@@ -23,40 +23,34 @@ const BlogContent = () => {
         ابقِ على اطلاع بأحدث صيحات الموضة
       </h2>
       <div className="flex flex-col flex-wrap lg:flex-row  gap-4">
-        {blogs.map((blog) => {
-          return <div className="flex flex-col lg:flex-row flex-wrap gap-4">
-            {blogs.length === 0 ? (
-              <p className="text-center">جاري تحميل المحتوى...</p>
-            ) : (
-              blogs.map((blog) => (
-                <div
-                  key={blog.id}
-                  className="w-full lg:w-[31%] bg-[#f6f2e9] border p-1"
-                >
-                  <img
-                    src={`https://highleveltecknology.com/bahaa/public/${blog.img}`}
-                    alt={blog.title}
-                    className="w-full object-cover h-64 lg:w-[369px] lg:h-[413px]"
-                  />
-                  <div className="p-5">
-                    <h2 className="lg:text-[24px] font-normal text-lg">{blog.title}</h2>
-                    <p className="mt-3 text-lg font-light lg:text-[16px] lg:h-[88px]">
-                      {blog.text}
-                    </p>
-                    <Link
-                      to={`/blog/${blog.id}`}
-                      state={blog}
-                      className="bg-[#907457] lg:w-[120px] lg:h-[34px] px-8 text-lg py-1 mt-10 text-white rounded-lg cursor-pointer hover:bg-[#795b3b] transition-all block duration-300 flex justify-center items-center"
-                    >
-                      المزيد
-                    </Link>
-                  </div>
-                </div>
-              ))
-            )}
+        {blogs.map((blog) => (
+          <div
+            key={blog.id}
+            className="w-full lg:w-[31%] bg-[#f6f2e9] border p-1"
+          >
+            <img
+              src={`https://highleveltecknology.com/bahaa/public/${blog.img}`}
+              alt={blog.title}
+              className="w-full object-cover h-64 lg:w-[369px] lg:h-[413px]"
+            />
+            <div className="p-5">
+              <h2 className="lg:text-[24px] font-normal text-lg">
+                {blog.title}
+              </h2>
+              <p className="mt-3 text-lg font-light lg:text-[16px] lg:h-[88px]">
+                {blog.text}
+              </p>
+              <button
+                onClick={() =>
+                  navigate(`/blog/${blog.id}`, { state: blog })
+                }
+                className="bg-[#907457] lg:w-[120px] lg:h-[34px] px-8 text-lg py-1 mt-10 text-white rounded-lg cursor-pointer hover:bg-[#795b3b] transition-all block duration-300 flex justify-center items-center"
+              >
+                المزيد
+              </button>
+            </div>
           </div>
-
-           })}
+        ))}
       </div>
     </div>
   );
